@@ -1,0 +1,5 @@
+*** Test Cases ***,${email},${senha},${mensagem}
+Senha incorreta,eu@dev.com,errada123,Email e/ou senha inválidos
+Email não cadastrado,nada@academy.dev,Senha123,Email e/ou senha inválidos
+Email vazio,,admin123,Email é obrigatório
+Senha vazia,paul@dev.pt,,Password é obrigatório

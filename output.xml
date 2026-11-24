@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.13.7 on win32)" generated="2026-11-03T16:42:26.966360" rpa="false" schemaversion="5">
+<suite id="s1" name="Login Datapool Test" source="M:\digicon-serverest-test\tests\web\login_datapool_test.robot">
+<test id="s1-t1" name="Senha incorreta" line="19">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2026-11-03T16:42:27.691448" level="INFO">Opening browser 'chrome' to base url 'https://front.serverest.dev/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-11-03T16:42:27.691161" elapsed="6.820451"/>
+</kw>
+<kw name="Login deve ser recusado">
+<kw name="Dado que a tela de login do sistema carregou" owner="login_steps">
+<kw name="Esperar a tela de cadastro carregar" owner="home_page">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CADASTRESE_BUTTON}</arg>
+<arg>timeout= 10s</arg>
+<arg>error= O sistema demora demais para carregar.</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-03T16:42:34.513974" elapsed="0.010329"/>
+</kw>
+<status status="PASS" start="2026-11-03T16:42:34.513359" elapsed="0.011084"/>
+</kw>
+<status status="PASS" start="2026-11-03T16:42:34.513021" elapsed="0.011490"/>
+</kw>
+<kw name="Quando preencho corretamente meus dados de login" owner="login_steps">
+<kw name="Preencher campo de e-mail" owner="login_page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-03T16:42:34.525543" level="INFO">Typing text 'eu@dev.com' into text field 'id: email'.</msg>
+<arg>${EMAIL_TEXT_FIELD}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-03T16:42:34.525304" elapsed="0.087387"/>
+</kw>
+<arg>${email}</arg>
+<status status="PASS" start="2026-11-03T16:42:34.525030" elapsed="0.087773"/>
+</kw>
+<kw name="Preencher campo de senha" owner="login_page">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-11-03T16:42:34.613629" level="INFO">Typing password into text field 'id: password'.</msg>
+<msg time="2026-11-03T16:42:34.632303" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${PASSWORD_TEXT_FIELD}</arg>
+<arg>${senha}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-03T16:42:34.613374" elapsed="0.051382"/>
+</kw>
+<arg>${senha}</arg>
+<status status="PASS" start="2026-11-03T16:42:34.613001" elapsed="0.051860"/>
+</kw>
+<arg>${email}</arg>
+<arg>${senha}</arg>
+<status status="PASS" start="2026-11-03T16:42:34.524697" elapsed="0.140229"/>
+</kw>
+<kw name="E submeto o formulário para entrar" owner="login_steps">
+<kw name="Submeter o formulário de cadastro" owner="login_page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-03T16:42:34.665813" level="INFO">Clicking button 'tag: button'.</msg>
+<arg>${CADASTRAR_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-03T16:42:34.665615" elapsed="0.048949"/>
+</kw>
+<status status="PASS" start="2026-11-03T16:42:34.665392" elapsed="0.049289"/>
+</kw>
+<status status="PASS" start="2026-11-03T16:42:34.665115" elapsed="0.049651"/>
+</kw>
+<kw name="Então devo visualizar a mensagem de erro" owner="login_steps">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<msg time="2026-11-03T16:42:44.923427" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-11-03T16:42:44.923594" level="FAIL">Text 'Email e/ou senha invÃ¡lidos' did not appear in 10 seconds.</msg>
+<arg>${mensagem}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="FAIL" start="2026-11-03T16:42:34.715258" elapsed="10.215169">Text 'Email e/ou senha invÃ¡lidos' did not appear in 10 seconds.</status>
+</kw>
+<arg>${mensagem}</arg>
+<status status="FAIL" start="2026-11-03T16:42:34.714952" elapsed="10.215653">Text 'Email e/ou senha invÃ¡lidos' did not appear in 10 seconds.</status>
+</kw>
+<arg>email=eu@dev.com</arg>
+<arg>senha=errada123</arg>
+<arg>mensagem=Email e/ou senha invÃ¡lidos</arg>
+<status status="FAIL" start="2026-11-03T16:42:34.512350" elapsed="10.418357">Text 'Email e/ou senha invÃ¡lidos' did not appear in 10 seconds.</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-11-03T16:42:44.931104" elapsed="2.696577"/>
+</kw>
+<status status="FAIL" start="2026-11-03T16:42:27.689196" elapsed="19.938754">Text 'Email e/ou senha invÃ¡lidos' did not appear in 10 seconds.</status>
+</test>
+<test id="s1-t2" name="Email nÃ£o cadastrado" line="19">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2026-11-03T16:42:47.629776" level="INFO">Opening browser 'chrome' to base url 'https://front.serverest.dev/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-11-03T16:42:47.629572" elapsed="6.647047"/>
+</kw>
+<kw name="Login deve ser recusado">
+<kw name="Dado que a tela de login do sistema carregou" owner="login_steps">
+<kw name="Esperar a tela de cadastro carregar" owner="home_page">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CADASTRESE_BUTTON}</arg>
+<arg>timeout= 10s</arg>
+<arg>error= O sistema demora demais para carregar.</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-03T16:42:54.278082" elapsed="0.009645"/>
+</kw>
+<status status="PASS" start="2026-11-03T16:42:54.277836" elapsed="0.010004"/>
+</kw>
+<status status="PASS" start="2026-11-03T16:42:54.277577" elapsed="0.010325"/>
+</kw>
+<kw name="Quando preencho corretamente meus dados de login" owner="login_steps">
+<kw name="Preencher campo de e-mail" owner="login_page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-03T16:42:54.288910" level="INFO">Typing text 'nada@academy.dev' into text field 'id: email'.</msg>
+<arg>${EMAIL_TEXT_FIELD}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-03T16:42:54.288691" elapsed="0.075761"/>
+</kw>
+<arg>${email}</arg>
+<status status="PASS" start="2026-11-03T16:42:54.288421" elapsed="0.076141"/>
+</kw>
+<kw name="Preencher campo de senha" owner="login_page">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-11-03T16:42:54.365260" level="INFO">Typing password into text field 'id: password'.</msg>
+<msg time="2026-11-03T16:42:54.382636" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${PASSWORD_TEXT_FIELD}</arg>
+<arg>${senha}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-03T16:42:54.365043" elapsed="0.045996"/>
+</kw>
+<arg>${senha}</arg>
+<status status="PASS" start="2026-11-03T16:42:54.364731" elapsed="0.046417"/>
+</kw>
+<arg>${email}</arg>
+<arg>${senha}</arg>
+<status status="PASS" start="2026-11-03T16:42:54.288086" elapsed="0.123127"/>
+</kw>
+<kw name="E submeto o formulário para entrar" owner="login_steps">
+<kw name="Submeter o formulário de cadastro" owner="login_page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-03T16:42:54.412083" level="INFO">Clicking button 'tag: button'.</msg>
+<arg>${CADASTRAR_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-03T16:42:54.411887" elapsed="0.047143"/>
+</kw>
+<status status="PASS" start="2026-11-03T16:42:54.411662" elapsed="0.047503"/>
+</kw>
+<status status="PASS" start="2026-11-03T16:42:54.411396" elapsed="0.047843"/>
+</kw>
+<kw name="Então devo visualizar a mensagem de erro" owner="login_steps">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<msg time="2026-11-03T16:43:04.712780" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-11-03T16:43:04.712993" level="FAIL">Text 'Email e/ou senha invÃ¡lidos' did not appear in 10 seconds.</msg>
+<arg>${mensagem}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="FAIL" start="2026-11-03T16:42:54.459963" elapsed="10.255673">Text 'Email e/ou senha invÃ¡lidos' did not appear in 10 seconds.</status>
+</kw>
+<arg>${mensagem}</arg>
+<status status="FAIL" start="2026-11-03T16:42:54.459605" elapsed="10.256200">Text 'Email e/ou senha invÃ¡lidos' did not appear in 10 seconds.</status>
+</kw>
+<arg>email=nada@academy.dev</arg>
+<arg>senha=Senha123</arg>
+<arg>mensagem=Email e/ou senha invÃ¡lidos</arg>
+<status status="FAIL" start="2026-11-03T16:42:54.277135" elapsed="10.438769">Text 'Email e/ou senha invÃ¡lidos' did not appear in 10 seconds.</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-11-03T16:43:04.716447" elapsed="4.479822"/>
+</kw>
+<status status="FAIL" start="2026-11-03T16:42:47.628736" elapsed="21.567811">Text 'Email e/ou senha invÃ¡lidos' did not appear in 10 seconds.</status>
+</test>
+<test id="s1-t3" name="Email vazio" line="19">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2026-11-03T16:43:09.198584" level="INFO">Opening browser 'chrome' to base url 'https://front.serverest.dev/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-11-03T16:43:09.198386" elapsed="7.358105"/>
+</kw>
+<kw name="Login deve ser recusado">
+<kw name="Dado que a tela de login do sistema carregou" owner="login_steps">
+<kw name="Esperar a tela de cadastro carregar" owner="home_page">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CADASTRESE_BUTTON}</arg>
+<arg>timeout= 10s</arg>
+<arg>error= O sistema demora demais para carregar.</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-03T16:43:16.558117" elapsed="0.012306"/>
+</kw>
+<status status="PASS" start="2026-11-03T16:43:16.557876" elapsed="0.012763"/>
+</kw>
+<status status="PASS" start="2026-11-03T16:43:16.557598" elapsed="0.013117"/>
+</kw>
+<kw name="Quando preencho corretamente meus dados de login" owner="login_steps">
+<kw name="Preencher campo de e-mail" owner="login_page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-03T16:43:16.572338" level="INFO">Typing text '' into text field 'id: email'.</msg>
+<arg>${EMAIL_TEXT_FIELD}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-03T16:43:16.572059" elapsed="0.062209"/>
+</kw>
+<arg>${email}</arg>
+<status status="PASS" start="2026-11-03T16:43:16.571520" elapsed="0.062975"/>
+</kw>
+<kw name="Preencher campo de senha" owner="login_page">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-11-03T16:43:16.635818" level="INFO">Typing password into text field 'id: password'.</msg>
+<msg time="2026-11-03T16:43:16.666220" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${PASSWORD_TEXT_FIELD}</arg>
+<arg>${senha}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-03T16:43:16.635495" elapsed="0.070945"/>
+</kw>
+<arg>${senha}</arg>
+<status status="PASS" start="2026-11-03T16:43:16.634889" elapsed="0.071662"/>
+</kw>
+<arg>${email}</arg>
+<arg>${senha}</arg>
+<status status="PASS" start="2026-11-03T16:43:16.570996" elapsed="0.135618"/>
+</kw>
+<kw name="E submeto o formulário para entrar" owner="login_steps">
+<kw name="Submeter o formulário de cadastro" owner="login_page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-03T16:43:16.707506" level="INFO">Clicking button 'tag: button'.</msg>
+<arg>${CADASTRAR_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-03T16:43:16.707302" elapsed="0.131934"/>
+</kw>
+<status status="PASS" start="2026-11-03T16:43:16.707078" elapsed="0.132475"/>
+</kw>
+<status status="PASS" start="2026-11-03T16:43:16.706804" elapsed="0.132842"/>
+</kw>
+<kw name="Então devo visualizar a mensagem de erro" owner="login_steps">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<msg time="2026-11-03T16:43:27.059215" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-11-03T16:43:27.059356" level="FAIL">Text 'Email Ã© obrigatÃ³rio' did not appear in 10 seconds.</msg>
+<arg>${mensagem}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="FAIL" start="2026-11-03T16:43:16.840253" elapsed="10.221637">Text 'Email Ã© obrigatÃ³rio' did not appear in 10 seconds.</status>
+</kw>
+<arg>${mensagem}</arg>
+<status status="FAIL" start="2026-11-03T16:43:16.839870" elapsed="10.222195">Text 'Email Ã© obrigatÃ³rio' did not appear in 10 seconds.</status>
+</kw>
+<arg>email=</arg>
+<arg>senha=admin123</arg>
+<arg>mensagem=Email Ã© obrigatÃ³rio</arg>
+<status status="FAIL" start="2026-11-03T16:43:16.557029" elapsed="10.505139">Text 'Email Ã© obrigatÃ³rio' did not appear in 10 seconds.</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-11-03T16:43:27.062608" elapsed="4.375673"/>
+</kw>
+<status status="FAIL" start="2026-11-03T16:43:09.197484" elapsed="22.241059">Text 'Email Ã© obrigatÃ³rio' did not appear in 10 seconds.</status>
+</test>
+<test id="s1-t4" name="Senha vazia" line="19">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2026-11-03T16:43:31.440395" level="INFO">Opening browser 'chrome' to base url 'https://front.serverest.dev/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-11-03T16:43:31.440204" elapsed="6.559261"/>
+</kw>
+<kw name="Login deve ser recusado">
+<kw name="Dado que a tela de login do sistema carregou" owner="login_steps">
+<kw name="Esperar a tela de cadastro carregar" owner="home_page">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CADASTRESE_BUTTON}</arg>
+<arg>timeout= 10s</arg>
+<arg>error= O sistema demora demais para carregar.</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-03T16:43:38.000823" elapsed="0.010262"/>
+</kw>
+<status status="PASS" start="2026-11-03T16:43:38.000468" elapsed="0.010736"/>
+</kw>
+<status status="PASS" start="2026-11-03T16:43:38.000194" elapsed="0.011070"/>
+</kw>
+<kw name="Quando preencho corretamente meus dados de login" owner="login_steps">
+<kw name="Preencher campo de e-mail" owner="login_page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-03T16:43:38.012274" level="INFO">Typing text 'paul@dev.pt' into text field 'id: email'.</msg>
+<arg>${EMAIL_TEXT_FIELD}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-03T16:43:38.012051" elapsed="0.079727"/>
+</kw>
+<arg>${email}</arg>
+<status status="PASS" start="2026-11-03T16:43:38.011792" elapsed="0.080097"/>
+</kw>
+<kw name="Preencher campo de senha" owner="login_page">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-11-03T16:43:38.092582" level="INFO">Typing password into text field 'id: password'.</msg>
+<msg time="2026-11-03T16:43:38.112504" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${PASSWORD_TEXT_FIELD}</arg>
+<arg>${senha}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-03T16:43:38.092368" elapsed="0.041957"/>
+</kw>
+<arg>${senha}</arg>
+<status status="PASS" start="2026-11-03T16:43:38.092058" elapsed="0.042437"/>
+</kw>
+<arg>${email}</arg>
+<arg>${senha}</arg>
+<status status="PASS" start="2026-11-03T16:43:38.011461" elapsed="0.123138"/>
+</kw>
+<kw name="E submeto o formulário para entrar" owner="login_steps">
+<kw name="Submeter o formulário de cadastro" owner="login_page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-03T16:43:38.136280" level="INFO">Clicking button 'tag: button'.</msg>
+<arg>${CADASTRAR_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-03T16:43:38.136024" elapsed="0.048229"/>
+</kw>
+<status status="PASS" start="2026-11-03T16:43:38.135612" elapsed="0.048847"/>
+</kw>
+<status status="PASS" start="2026-11-03T16:43:38.134932" elapsed="0.049633"/>
+</kw>
+<kw name="Então devo visualizar a mensagem de erro" owner="login_steps">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<msg time="2026-11-03T16:43:48.380997" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-11-03T16:43:48.381180" level="FAIL">Text 'Password Ã© obrigatÃ³rio' did not appear in 10 seconds.</msg>
+<arg>${mensagem}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="FAIL" start="2026-11-03T16:43:38.185329" elapsed="10.197932">Text 'Password Ã© obrigatÃ³rio' did not appear in 10 seconds.</status>
+</kw>
+<arg>${mensagem}</arg>
+<status status="FAIL" start="2026-11-03T16:43:38.184830" elapsed="10.198588">Text 'Password Ã© obrigatÃ³rio' did not appear in 10 seconds.</status>
+</kw>
+<arg>email=paul@dev.pt</arg>
+<arg>senha=</arg>
+<arg>mensagem=Password Ã© obrigatÃ³rio</arg>
+<status status="FAIL" start="2026-11-03T16:43:37.999805" elapsed="10.383715">Text 'Password Ã© obrigatÃ³rio' did not appear in 10 seconds.</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-11-03T16:43:48.384009" elapsed="2.692006"/>
+</kw>
+<status status="FAIL" start="2026-11-03T16:43:31.439399" elapsed="19.636822">Text 'Password Ã© obrigatÃ³rio' did not appear in 10 seconds.</status>
+</test>
+<doc>Teste usando datapool CSV</doc>
+<status status="FAIL" start="2026-11-03T16:42:26.978194" elapsed="84.098738"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="4" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Login Datapool Test" id="s1" pass="0" fail="4" skip="0">Login Datapool Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
